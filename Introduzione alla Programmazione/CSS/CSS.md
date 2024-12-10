@@ -37,15 +37,11 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
-div.a {
+> Font-size
+h1 {
   font-size: 15px;
-}
-
-div.b {
   font-size: large;
-}
-
-div.c {
   font-size: 150%;
 }
+
 
