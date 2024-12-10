@@ -1,4 +1,4 @@
-Fundamentals of CSS
+#Fundamentals of CSS
 _____________________
 > Primo metodo (inline)
 ```
@@ -22,3 +22,30 @@ _____________________
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 ```
+
+# Fundamentals Proprieties
+> Text Allign 
+
+h1 {
+  text-align: center;
+  text-align: left;
+  text-align: right;
+  text-align: justify;
+}
+> Font-Family 
+h1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+div.a {
+  font-size: 15px;
+}
+
+div.b {
+  font-size: large;
+}
+
+div.c {
+  font-size: 150%;
+}
+
