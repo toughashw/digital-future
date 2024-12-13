@@ -1,2 +1,2 @@
-# Branch di Laboraotorio
+# Branch di Laboratorio
 Sbizzariammoci
