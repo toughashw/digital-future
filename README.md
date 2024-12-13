@@ -1,2 +1,1 @@
-# Corso Digital Future
-Corso Programmazione Web-Mobile FullStack
+# Introduzione allo sviluppo Mobile
