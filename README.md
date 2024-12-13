@@ -19,3 +19,10 @@ git push origin <nome-ramo>
 git reset --hard <hash-commit>
 git push --force origin <nome-ramo>
 ```
+
+> Forkare Repo
+git clone url.git
+git remote add origin url.git
+git pull origin <nome-branch>
+git log --oneline
+```
