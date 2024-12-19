@@ -1,0 +1,22 @@
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambia Colore Bottone</title>
+  <script>
+    function cambiaColoreBottone() {
+      // Otteniamo il bottone per ID
+      const bottone = document.getElementById("mioBottone");
+
+      // Cambiamo il colore di sfondo del bottone
+      bottone.style.backgroundColor = "blue";  // Puoi usare qualsiasi colore
+      bottone.style.color = "white";  // Cambia anche il colore del testo
+    }
+  </script>
+</head>
+<body>
+
+  <button id="mioBottone" onclick="cambiaColoreBottone()">Cambia Colore</button>
+
+</body>
+</html>
