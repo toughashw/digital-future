@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somma di Tre Numeri</title>
-    <script>
-        // Funzione per calcolare la somma
-        function calcolaSomma() {
-            // Ottieni i valori dai campi di input
-            var num1 = parseFloat(document.getElementById("numero1").value);
-            var num2 = parseFloat(document.getElementById("numero2").value);
-            var num3 = parseFloat(document.getElementById("numero3").value);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conta Lettere Maiuscole e Minuscole</title>
+  <script>
+    function contaMaiuscole() {
+      // Otteniamo i valori delle due stringhe dai campi di input
+      const str1 = document.getElementById("stringa1").value;
+      const str2 = document.getElementById("stringa2").value;
 
-            // Calcola la somma
-            var somma = num1 + num2 + num3;
-            var prodotto = num1 * num2 * num3;
-
-            // Mostra il risultato
-            document.getElementById("risultato").innerText = "La somma è: " + somma;
-            document.getElementById("risultato").innerText = "Il prodotto è: " + prodotto;
+      // Funzione per contare le lettere maiuscole
+      function contaMaiuscoleInStringa(str) {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] === str[i].toUpperCase() && str[i] !== str[i].toLowerCase()) {
+            count++;
+          }
         }
-    </script>
+        return count;
+      }
+
+      // Funzione per contare le lettere minuscole
+      function contaMinuscoleInStringa(str) {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] === str[i].toLowerCase() && str[i] !== str[i].toUpperCase()) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      // Calcoliamo il numero di lettere maiuscole per entrambe le stringhe
+      const maiuscoleStr1 = contaMaiuscoleInStringa(str1);
+      const maiuscoleStr2 = contaMaiuscoleInStringa(str2);
+
+      // Calcoliamo il numero di lettere minuscole per entrambe le stringhe
+      const minuscoleStr1 = contaMinuscoleInStringa(str1);
+      const minuscoleStr2 = contaMinuscoleInStringa(str2);
+
+      // Visualizziamo il risultato nel div con id "risultato"
+      document.getElementById("risultato").innerHTML = `
+        Totale maiuscole in prima stringa: ${maiuscoleStr1} <br>
+        Totale maiuscole in seconda stringa: ${maiuscoleStr2} <br>
+      `;
+      
+      document.getElementById("risultato2").innerHTML = `
+        Totale minuscole in prima stringa: ${minuscoleStr1} <br>
+        Totale minuscole in seconda stringa: ${minuscoleStr2} <br>
+      `;
+    }
+  </script>
 </head>
 <body>
-    <h1>Calcola la somma di tre numeri</h1>
-    
-    <label for="numero1">Primo numero:</label>
-    <input type="number" id="numero1" required><br><br>
-
-    <label for="numero2">Secondo numero:</label>
-    <input type="number" id="numero2" required><br><br>
-
-    <label for="numero3">Terzo numero:</label>
-    <input type="number" id="numero3" required><br><br>
-
-    <button onclick="calcolaSomma()">Calcola Somma</button>
-    <button onclick="calcolaSomma()">Calcola Prodotto</button>
-
-    <h2 id="risultato"></h2>
+  <h1>Conta le lettere maiuscole e minuscole</h1>
+  
+  <label for="stringa1">Inserisci la prima stringa:</label>
+  <input type="text" id="stringa1" placeholder="Prima stringa"><br><br>
+  
+  <label for="stringa2">Inserisci la seconda stringa:</label>
+  <input type="text" id="stringa2" placeholder="Seconda stringa"><br><br>
+  
+  <button onclick="contaMaiuscole()">Conta maiuscole e minuscole</button>
+  
+  <h2>Risultato:</h2>
+  <div id="risultato"></div>
+  <div id="risultato2"></div>
 </body>
 </html>
+
