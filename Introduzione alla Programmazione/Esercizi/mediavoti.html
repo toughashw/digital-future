@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Media Voti</title>
+</head>
+<body>
+    <h1>Calcolo Media Voti degli Alunni</h1>
+    <form id="form">
+        <div>
+            <h2>Alunno 1</h2>
+            Nome: <input type="text" id="nome1" required><br>
+            Cognome: <input type="text" id="cognome1" required><br>
+            Voto 1: <input type="number" id="voto11" required><br>
+            Voto 2: <input type="number" id="voto12" required><br>
+            Voto 3: <input type="number" id="voto13" required><br>
+            Voto 4: <input type="number" id="voto14" required><br>
+        </div>
+        <div>
+            <h2>Alunno 2</h2>
+            Nome: <input type="text" id="nome2" required><br>
+            Cognome: <input type="text" id="cognome2" required><br>
+            Voto 1: <input type="number" id="voto21" required><br>
+            Voto 2: <input type="number" id="voto22" required><br>
+            Voto 3: <input type="number" id="voto23" required><br>
+            Voto 4: <input type="number" id="voto24" required><br>
+        </div>
+        <div>
+            <h2>Alunno 3</h2>
+            Nome: <input type="text" id="nome3" required><br>
+            Cognome: <input type="text" id="cognome3" required><br>
+            Voto 1: <input type="number" id="voto31" required><br>
+            Voto 2: <input type="number" id="voto32" required><br>
+            Voto 3: <input type="number" id="voto33" required><br>
+            Voto 4: <input type="number" id="voto34" required><br>
+        </div>
+        <br>
+        <button type="button" onclick="calcolaMedia()">Calcola Medie</button>
+    </form>
+    <br>
+    <div id="risultati" style="display:none;">
+        <p id="mediaAlta"></p>
+        <p id="mediaBassa"></p>
+    </div>
+
+    <script>
+        function calcolaMedia() {
+            const nomi = [];
+            const cognomi = [];
+            const medie = [];
+            
+            for (let i = 1; i <= 3; i++) {
+                let nome = document.getElementById('nome' + i).value;
+                let cognome = document.getElementById('cognome' + i).value;
+                let voto1 = parseFloat(document.getElementById('voto' + i + '1').value);
+                let voto2 = parseFloat(document.getElementById('voto' + i + '2').value);
+                let voto3 = parseFloat(document.getElementById('voto' + i + '3').value);
+                let voto4 = parseFloat(document.getElementById('voto' + i + '4').value);
+                
+                let media = (voto1 + voto2 + voto3 + voto4) / 4;
+                
+                nomi.push(nome);
+                cognomi.push(cognome);
+                medie.push(media);
+            }
+
+            // Determinare media più alta e più bassa
+            let maxMedia = Math.max(...medie);
+            let minMedia = Math.min(...medie);
+            let maxIndex = medie.indexOf(maxMedia);
+            let minIndex = medie.indexOf(minMedia);
+
+            // Mostrare i risultati
+            document.getElementById('mediaAlta').innerText = `Media più alta: ${nomi[maxIndex]} ${cognomi[maxIndex]} con ${maxMedia.toFixed(2)}`;
+            document.getElementById('mediaBassa').innerText = `Media più bassa: ${nomi[minIndex]} ${cognomi[minIndex]} con ${minMedia.toFixed(2)}`;
+
+            // Mostrare i risultati
+            document.getElementById('risultati').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
