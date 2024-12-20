@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup e Login con JavaScript</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .toggle-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 id="form-title">Login</h2>
+
+    <!-- Form di Login -->
+    <div id="login-form">
+        <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Inserisci email">
+        </div>
+        <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Inserisci password">
+        </div>
+        <button onclick="login()">Login</button>
+        <span class="toggle-link" onclick="showSignupForm()">Non hai un account? Registrati</span>
+        <p id="login-error" class="error"></p>
+    </div>
+
+    <!-- Form di Signup -->
+    <div id="signup-form" style="display: none;">
+        <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Inserisci email">
+        </div>
+        <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Inserisci password">
+        </div>
+        <button onclick="signup()">Registrati</button>
+        <span class="toggle-link" onclick="showLoginForm()">Già registrato? Accedi</span>
+        <p id="signup-error" class="error"></p>
+    </div>
+</div>
+
+<script>
+    // Funzione per visualizzare il form di login
+    function showLoginForm() {
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('form-title').innerText = 'Login';
+        document.getElementById('login-error').innerText = '';
+    }
+
+    // Funzione per visualizzare il form di signup
+    function showSignupForm() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('signup-form').style.display = 'block';
+        document.getElementById('form-title').innerText = 'Registrati';
+        document.getElementById('signup-error').innerText = '';
+    }
+
+    // Funzione per gestire la registrazione
+    function signup() {
+        var email = document.getElementById('signup-email').value;
+        var password = document.getElementById('signup-password').value;
+        var errorElement = document.getElementById('signup-error');
+        
+        // Verifica input
+        if (email === '' || password === '') {
+            errorElement.innerText = 'Tutti i campi sono obbligatori';
+            return;
+        }
+
+        // Salvataggio dei dati nel localStorage
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+        
+        alert('Registrazione avvenuta con successo!');
+        showLoginForm();
+    }
+
+    // Funzione per gestire il login
+    function login() {
+        var email = document.getElementById('login-email').value;
+        var password = document.getElementById('login-password').value;
+        var errorElement = document.getElementById('login-error');
+        
+        // Recupera i dati salvati
+        var savedEmail = localStorage.getItem('email');
+        var savedPassword = localStorage.getItem('password');
+        
+        // Verifica se l'email e la password corrispondono
+        if (email === savedEmail && password === savedPassword) {
+            alert('Accesso avvenuto con successo!');
+        } else {
+            errorElement.innerText = 'Email o password errati';
+        }
+    }
+</script>
+
+</body>
+</html>
