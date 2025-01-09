@@ -1,0 +1,25 @@
+{
+    "squadra": {
+      "nome": "FC Esempio",
+      "anno_fondazione": 1920,
+      "stadio": "Stadio Comunale",
+      "giocatori": [
+        {
+          "nome": "Luca Bianchi",
+          "posizione": "Attaccante",
+          "numero_maglia": 9
+        },
+        {
+          "nome": "Marco Verdi",
+          "posizione": "Centrocampista",
+          "numero_maglia": 7
+        }
+        {
+            "nome": "Gianluca Rossi",
+            "posizione": "Attacante",
+            "numero_maglia": 7
+          }
+      ]
+    }
+  }
+  
