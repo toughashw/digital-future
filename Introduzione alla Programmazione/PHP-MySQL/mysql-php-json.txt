@@ -1,0 +1,60 @@
+CREATE DATABASE persone;
+
+USE persone;
+
+CREATE TABLE utenti (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cognome VARCHAR(100) NOT NULL,
+    anni INT NOT NULL
+);
+
+
+INSERT INTO utenti (nome, cognome, anni) VALUES 
+('Mario', 'Rossi', 30),
+('Luca', 'Bianchi', 25),
+('Anna', 'Verdi', 22);
+
+
+<?php
+// Parametri di connessione al database
+$host = 'localhost'; // o l'IP del tuo server MySQL
+$user = 'root'; // username del database
+$password = ''; // password del database
+$dbname = 'persone'; // nome del database
+
+// Creazione della connessione
+$conn = new mysqli($host, $user, $password, $dbname);
+
+// Verifica della connessione
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+}
+
+// Esegui la query per ottenere i dati
+$sql = "SELECT nome, cognome, anni FROM utenti";
+$result = $conn->query($sql);
+
+// Crea un array per i dati
+$persone = array();
+
+if ($result->num_rows > 0) {
+    // Aggiungi i dati all'array
+    while($row = $result->fetch_assoc()) {
+        $persone[] = $row;
+    }
+} else {
+    echo "Nessun risultato trovato.";
+}
+
+// Converte l'array in JSON
+$json_data = json_encode($persone, JSON_PRETTY_PRINT);
+
+// Salva il JSON in un file
+file_put_contents('persone.json', $json_data);
+
+// Chiudi la connessione
+$conn->close();
+
+echo "File JSON generato con successo!";
+?>
