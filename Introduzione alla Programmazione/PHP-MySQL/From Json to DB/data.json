@@ -1,0 +1,17 @@
+[
+    {
+        "nome": "Mario",
+        "cognome": "Rossi",
+        "email": "mario.rossi@gmail.com"
+    },
+    {
+        "nome": "Luca",
+        "cognome": "Bianchi",
+        "email": "luca.bianchi@gmail.com"
+    },
+    {
+        "nome": "Anna",
+        "cognome": "Verdi",
+        "email": "anna.verdi@gmail.com"
+    }
+]
