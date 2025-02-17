@@ -25,7 +25,7 @@ $stmt->bind_param("ssi", $nome, $cognome, $email); // "ssi" indica che il primo 
 foreach ($data as $user) {
     $nome = $user['nome'];
     $cognome = $user['cognome'];
-    $email = $user['email'];  // Assicurati che 'anni' sia un valore numerico
+    $email = $user['email'];  
 
     // Esegui la query di inserimento
     if ($stmt->execute()) {
